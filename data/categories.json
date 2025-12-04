@@ -1,0 +1,117 @@
+{
+    "medical": {
+      "name": { "en": "General materials", "ar": "مواد عامة" },
+      "subcategories": [
+        {
+          "key": "Oral",
+          "name": { "en": "🦷 Oral Care", "ar": "🦷 معاجين أسنان" },
+          "tertiary": [
+            { "key": "toothpaste", "name": { "en": "Toothpaste", "ar": "معجون أسنان" } },
+            { "key": "toothbrush", "name": { "en": "Toothbrushes", "ar": "فرش أسنان" } },
+            { "key": "mouthwash", "name": { "en": "Mouthwash", "ar": "غسول فم" } },
+            { "key": "mouth fresheners", "name": { "en": "Mouth fresheners", "ar": "معطرات للفم" } },
+            { "key": "interdental tablet", "name": { "en": "A tablet used for cleaning between the teeth.", "ar": "حب لتنظيف تخم الأسنان" } }
+          ]
+        },
+        {
+          "key": "Hair & Body Care",
+          "name": { "en": "🧴 Hair & Body Care", "ar": "🧴 العناية بالشعر والجسم" },
+          "tertiary": [
+            { "key": "shampoo", "name": { "en": "Shampoo", "ar": "شامبو" } },
+            { "key": "Hair care ampoules", "name": { "en": "Hair care ampoules", "ar": "إبر عناية بالشعر" } },
+            { "key": "bodywash", "name": { "en": "Body Wash", "ar": "غسول جسم" } },
+            { "key": "Hair remover", "name": { "en": "Hair remover", "ar": "مزيل شعر" } },
+            { "key": "Oils", "name": { "en": "Oils", "ar": "زيوت" } }
+          ]
+        },
+        {
+          "key": "Personal Care",
+          "name": { "en": "🧼 Personal Care", "ar": "🧼 العناية الشخصية" },
+          "tertiary": [
+            { "key": "soap", "name": { "en": "Soap", "ar": "صابون" } },
+            { "key": "Feminine wash", "name": { "en": "Feminine wash", "ar": "غسول مهبلي" } },
+            { "key": "Men's body wash", "name": { "en": "Men's body wash", "ar": "غسول رجالي" } },
+            { "key": "Skin creams", "name": { "en": "Skin creams", "ar": "كريمات بشرة" } },
+            { "key": "Face scrub", "name": { "en": "Face scrub", "ar": "سكراب وجه" } },
+            { "key": "Lip balm", "name": { "en": "Lip balm", "ar": "مرطب شفاه" } },
+            { "key": "Sunscreens", "name": { "en": "Sunscreens", "ar": "واقيات شمس" } },
+            { "key": "Heel treatment", "name": { "en": "Heel treatment (softening and smoothing heels)", "ar": "كعب غزال (توريد وتنعيم الكعب)" } },
+            { "key": "Face mask", "name": { "en": "Face mask", "ar": "فيس ماسك" } }
+          ]
+        },
+        {
+          "key": "Baby",
+          "name": { "en": "👶 Baby Products", "ar": "👶 منتجات الأطفال" },
+          "tertiary": [
+            { "key": "Baby powder", "name": { "en": "Baby powder", "ar": "بودرة أطفال" } },
+            { "key": "Baby feeding bottle", "name": { "en": "Baby feeding bottle", "ar": "رضاعة أطفال" } },
+            { "key": "Baby bottle nipples", "name": { "en": "Baby bottle nipples", "ar": "حلمات رضاعة الأطفال" } },
+            { "key": "Teething gel", "name": { "en": "Teething pain relief gel", "ar": "جل مسكن الألم لبلوغ الأسنان" } }
+          ]
+        },
+        {
+          "key": "Health",
+          "name": { "en": "🩺 Health & First Aid", "ar": "🩺 الصحة والإسعافات" },
+          "tertiary": [
+            { "key": "Gloves", "name": { "en": "Gloves", "ar": "قفازات" } },
+            { "key": "First aid kits", "name": { "en": "First aid kits", "ar": "حقائب إسعافات أولية" } },
+            { "key": "Dettol disinfectant", "name": { "en": "Dettol disinfectant", "ar": "ديتول" } },
+            { "key": "Alcohol", "name": { "en": "Alcohol", "ar": "كحول" } },
+            { "key": "Povidone-iodine", "name": { "en": "Povidone-iodine", "ar": "بوفيدين" } },
+            { "key": "Hand sanitizer", "name": { "en": "Hand sanitizer", "ar": "معقم يدين" } },
+            { "key": "Effervescent tablets", "name": { "en": "Effervescent tablets", "ar": "فوار" } }
+          ]
+        },
+        {
+          "key": "Special Products",
+          "name": { "en": "Special Products", "ar": "منتجات خاصة" },
+          "tertiary": [
+            { "key": "Lubricant", "name": { "en": "Lubricant", "ar": "مزلق" } },
+            { "key": "Condom", "name": { "en": "Condom", "ar": "واقي ذكري" } }
+          ]
+        },
+        {
+          "key": "Food",
+          "name": { "en": "Food & Sweeteners", "ar": "أغذية ومحليات" },
+          "tertiary": [
+            { "key": "Sweetener", "name": { "en": "Sweetener", "ar": "محلي" } }
+          ]
+        }
+      ]
+    },
+    "consumables": {
+      "name": { "en": "Medical supplies", "ar": "مستلزمات طبية" },
+      "subcategories": [
+        {
+          "key": "Flamingo company",
+          "name": { "en": "Flamingo company", "ar": "🏪شركة Flamingo" },
+          "tertiary": [
+            { "key": "Flamingo products", "name": { "en": "Flamingo products", "ar": "منتجات Flamingo" } }
+          ]
+        },
+        {
+          "key": "Medi System company",
+          "name": { "en": "Medi System company", "ar": "🏪شركة Medi System" },
+          "tertiary": [
+            { "key": "Medi System products", "name": { "en": "Medi System products", "ar": "منتجات Medi System" } }
+          ]
+        },
+        {
+          "key": "Headphones",
+          "name": { "en": "Headphones", "ar": "🎧 السماعات" },
+          "tertiary": [
+            { "key": "Hearing aids", "name": { "en": "Hearing aids", "ar": "سماعات طبية" } },
+            { "key": "Earphones", "name": { "en": "Earphones", "ar": "سماعات أذن" } }
+          ]
+        },
+        {
+          "key": "Nebulizer devices",
+          "name": { "en": "Nebulizer devices", "ar": "🌬️ أجهزة الاستنشاق" },
+          "tertiary": [
+            { "key": "ALL Products", "name": { "en": "ALL Products", "ar": "جميع المنتجات" } }
+          ]
+        }
+      ]
+    }
+  }
+  

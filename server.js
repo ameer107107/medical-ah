@@ -7,6 +7,7 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const PORT = 5000;
 const UPLOAD_DIR = 'uploads/products';
+const EXPORT_JSON_PATH = path.join(__dirname, 'data/products.json');
 
 // إنشاء قاعدة البيانات
 const db = new sqlite3.Database('./database.sqlite');
@@ -36,24 +37,35 @@ function initializeDatabase() {
     });
 }
 
+// 🌟 دالة تصدير المنتجات إلى JSON
+function exportProductsToJSON() {
+    db.all(`SELECT * FROM products ORDER BY created_at DESC`, (err, rows) => {
+        if (err) {
+            console.error('Error exporting products to JSON:', err.message);
+            return;
+        }
+
+        const products = rows.map(row => ({
+            id: row.id,
+            primaryCategory: row.primary_category,
+            category: row.category,
+            tertiaryCategory: row.tertiary_category,
+            name: { ar: row.name_ar, en: row.name_en },
+            description: { ar: row.description_ar, en: row.description_en },
+            price: row.price,
+            image: row.image
+        }));
+
+        fs.mkdirSync(path.dirname(EXPORT_JSON_PATH), { recursive: true });
+        fs.writeFileSync(EXPORT_JSON_PATH, JSON.stringify(products, null, 2), 'utf8');
+        console.log('✅ Products exported to JSON successfully');
+    });
+}
+
+// Middleware
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static('.'));
-
-// 📄 صفحات الواجهة بدون .html في الرابط
-//app.get('/index', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-//app.get('/products', (req, res) => res.sendFile(path.join(__dirname, 'products.html')));
-//app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'about.html')));
-//app.get('/contact', (req, res) => res.sendFile(path.join(__dirname, 'contact.html')));
-//app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
-//app.get('/admin', (req, res) => res.sendFile(path.join(__dirname, 'admin.html')));
-
-// 🔁 إعادة توجيه من .html إلى الروابط النظيفة
-//app.get('/:page.html', (req, res) => {
-  //  const page = req.params.page;
-    //res.redirect(`/${page}`);
-  //});
-  
 
 // 📦 عرض جميع المنتجات
 app.get('/api/products', (req, res) => {
@@ -112,6 +124,10 @@ app.post('/api/products', (req, res) => {
             imagePath
         ], (err) => {
             if (err) return res.status(400).json({ error: err.message });
+
+            // تحديث JSON بعد الإضافة
+            exportProductsToJSON();
+
             res.status(201).json({ ...product, image: imagePath });
         });
     } catch (error) {
@@ -157,6 +173,10 @@ app.put('/api/products/:id', (req, res) => {
         productId
     ], (err) => {
         if (err) return res.status(400).json({ error: err.message });
+
+        // تحديث JSON بعد التعديل
+        exportProductsToJSON();
+
         res.json({ ...product, id: productId, image: imagePath });
     });
 });
@@ -167,9 +187,16 @@ app.delete('/api/products/:id', (req, res) => {
 
     db.run(`DELETE FROM products WHERE id = ?`, [productId], (err) => {
         if (err) return res.status(500).json({ error: err.message });
+
+        // تحديث JSON بعد الحذف
+        exportProductsToJSON();
+
         res.sendStatus(200);
     });
 });
+
+setInterval(exportProductsToJSON, 5 * 60 * 1000); 
+
 
 // أنشئ مجلد الرفع إن لم يكن موجود
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
@@ -177,6 +204,9 @@ if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 // 🚀 تشغيل السيرفر
 (async () => {
     await initializeDatabase();
+    // تصدير أولي عند التشغيل
+    exportProductsToJSON();
+
     app.listen(PORT, '0.0.0.0', () => {
         console.log(`🚀 Server running on http://localhost:${PORT}`);
         console.log('📡 Endpoints ready: GET, POST, PUT, DELETE');

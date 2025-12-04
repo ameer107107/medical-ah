@@ -61,10 +61,7 @@ async function loadData() {
             const bestsellersData = await bestsellersResponse.json();
             
             // Filter and validate products data
-            products = rawProducts.filter(product => 
-                product && product.id && product.name && product.description && product.category
-            );
-            
+            products = rawProducts;
             // Build bestsellers array from products and bestsellers data
             bestSellingProducts = bestsellersData
                 .map(bestseller => {

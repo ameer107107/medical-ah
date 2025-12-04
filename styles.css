@@ -41,7 +41,7 @@ body {
 
 body {
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: #3f8439;
 }
 
 /* Header Styles */
