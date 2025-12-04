@@ -9,7 +9,7 @@ const CATEGORIES_DATA = {
     subcategories: [
       {
         key: "Oral",
-        name: { en: "🦷 Oral Care", ar: "🦷 معاجين أسنان" },
+        name: { en: "🦷 Oral and dental care", ar: "🦷  العناية ب الفم و الاسنان" },
         tertiary: [
           { key: "toothpaste", name: { en: "Toothpaste", ar: "معجون أسنان" } },
           { key: "toothbrush", name: { en: "Toothbrushes", ar: "فرش أسنان" } },
